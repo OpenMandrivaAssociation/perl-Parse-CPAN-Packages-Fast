@@ -1,20 +1,22 @@
 %define upstream_name    Parse-CPAN-Packages-Fast
-%define upstream_version 0.04
+%define upstream_version 0.06
 
-Name:       perl-%{upstream_name}
-Version:    %perl_convert_version %{upstream_version}
-Release:    %mkrel 1
+Name:		perl-%{upstream_name}
+Version:	%perl_convert_version %{upstream_version}
+Release:	1
 
-Summary:    Parse CPAN's package index
-License:    GPL+ or Artistic
-Group:      Development/Perl
-Url:        http://search.cpan.org/dist/%{upstream_name}
-Source0:    http://www.cpan.org/modules/by-module/Parse/%{upstream_name}-%{upstream_version}.tar.gz
+Summary:	Parse CPAN's package index
+License:	GPL+ or Artistic
+Group:		Development/Perl
+Url:		http://search.cpan.org/dist/%{upstream_name}
+Source0:	http://www.cpan.org/modules/by-module/Parse/%{upstream_name}-%{upstream_version}.tar.gz
 
-BuildRequires: perl(CPAN::DistnameInfo)
-BuildRequires: perl(PerlIO::gzip)
-BuildRequires: perl(version)
-BuildArch: noarch
+BuildRequires:	perl-devel
+BuildRequires:	perl(CPAN::DistnameInfo)
+BuildRequires:	perl(CPAN::Version)
+BuildRequires:	perl(ExtUtils::MakeMaker)
+BuildRequires:	perl(PerlIO::gzip)
+BuildArch:	noarch
 
 %description
 This is a largely API compatible rewrite of the Parse::CPAN::Packages
@@ -29,24 +31,17 @@ Notable differences are
 %setup -q -n %{upstream_name}-%{upstream_version}
 
 %build
-%{__perl} Makefile.PL INSTALLDIRS=vendor
-
+perl Makefile.PL INSTALLDIRS=vendor
 %make
 
 %check
 %make test
 
 %install
-rm -rf %buildroot
 %makeinstall_std
 
-%clean
-rm -rf %buildroot
-
 %files
-%defattr(-,root,root)
-%doc README META.yml
+%doc Changes META.json META.yml MYMETA.yml README
 %{_mandir}/man3/*
-%perl_vendorlib/*
-
+%{perl_vendorlib}/*
 
