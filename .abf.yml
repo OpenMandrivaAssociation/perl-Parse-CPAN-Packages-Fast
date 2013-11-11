@@ -1,2 +1,4 @@
+removed_sources:
+  Parse-CPAN-Packages-Fast-0.06.tar.gz: 82ceaa2a620548dc33dc3f59c36b6702a40e6908
 sources:
-  "Parse-CPAN-Packages-Fast-0.06.tar.gz": 82ceaa2a620548dc33dc3f59c36b6702a40e6908
+  Parse-CPAN-Packages-Fast-0.07.tar.gz: a9462bda0b025a9f67afeb382a4e8ab37a19b411
