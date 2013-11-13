@@ -12,6 +12,7 @@ Url:		http://search.cpan.org/dist/%{upstream_name}
 Source0:	http://www.cpan.org/modules/by-module/Parse/Parse-CPAN-Packages-Fast-%{upstream_version}.tar.gz
 
 BuildRequires:	perl-devel
+BuildRequires: perl(IO::Uncompress::Gunzip)
 BuildRequires:	perl(CPAN::DistnameInfo)
 BuildRequires:	perl(CPAN::Version)
 BuildRequires:	perl(ExtUtils::MakeMaker)
